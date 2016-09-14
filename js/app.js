@@ -14,31 +14,38 @@ var my_news = [
 ];
 
 var News = React.createClass({
-  render: function() {
-    var data = this.props.data;
-    var newsTemplate;
+	render: function() {
+		var data = this.props.data;
+		var newsTemplate;
+		var newsAmount;
 
-    if (data.length > 0) {
-      newsTemplate = data.map(function(item, index) {
-        return (
-          <div key={index}>
-            <p className="news__author">{item.author}:</p>
-            <p className="news__text">{item.text}</p>
-          </div>
-        )
-      })
-    } else {
-      newsTemplate = <p>К сожалению новостей нет</p>
-    }
+		if (data.length > 0) {
+			newsTemplate = data.map(function(item, index) {
+				return (
+					<div key={index}>
+					<p className="news__author">{item.author}:</p>
+					<p className="news__text">{item.text}</p>
+					</div>
+					)
+				});
+			newsAmount = React.createClass({
+				render: function() {
+					<strong className="news__amount">Всего новостей: {data.length}</strong>
+				}
+			});
+		} else {
+			newsTemplate = <p>К сожалению новостей нет</p>
+		}
 
-    return (
-      <div className="news">
-        {newsTemplate}
-        <strong className={data.length > 0 ? '':'none'}>Всего новостей: {data.length}</strong>
-      </div>
-    );
-  }
+		return (
+			<div className="news">
+				{newsTemplate}
+				{data.length > 0 ? {newsAmount} : null}
+			</div>
+		);
+	}
 });
+
 
 var Comments = React.createClass({
   render: function() {

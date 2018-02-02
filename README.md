@@ -1,2 +1,2 @@
 # react-ru-tutorial
-Код для раздела [Подготовка](https://maxfarseer.gitbooks.io/react-course-ru/content/chapter1.html)
+Код для раздела [Жизненый цикл компонента](https://maxfarseer.gitbooks.io/react-course-ru/content/zhiznennii_tsikl_komponenta.html)
